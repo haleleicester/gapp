@@ -8,6 +8,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.gapp.model.Sale;
+import com.example.gapp.model.SalesGrabber;
+
 public class SalesActivity extends AppCompatActivity {
 
     @Override
@@ -20,7 +23,11 @@ public class SalesActivity extends AppCompatActivity {
     }
 
     public void onNewEventClick(View view){
-        Toast.makeText(this, "Make new event", Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, "Make new event", Toast.LENGTH_SHORT).show();
+        SalesGrabber db = new SalesGrabber(this);
+
+        db.addSale(new Sale("Test Hello World"));
+        Toast.makeText(this, db.getSale(0).get_contents(), Toast.LENGTH_SHORT).show();
     }
 
 }
