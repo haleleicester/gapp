@@ -27,6 +27,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/i_services_title"
         android:id="@+id/services_title"
+        android:onClick="onServicesClick"
         android:layout_below="@+id/sales_title"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp" />
@@ -37,6 +38,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/i_trust_grant_title"
         android:id="@+id/i_trust_grant_title"
+        android:onClick="onTGClick"
         android:layout_below="@+id/services_title"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="52dp" />
@@ -47,6 +49,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/i_entertainment_title"
         android:id="@+id/i_entertainment_title"
+        android:onClick="onEntertainmentClick"
         android:layout_below="@+id/i_trust_grant_title"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="68dp" />

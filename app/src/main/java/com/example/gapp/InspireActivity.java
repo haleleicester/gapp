@@ -24,4 +24,17 @@ public class InspireActivity extends AppCompatActivity {
 
     }
 
+    public void onServicesClick(View view){
+        Toast.makeText(this,"Services has been clicked", Toast.LENGTH_SHORT).show();
+
+    }
+
+    public void onTGClick(View view){
+        Toast.makeText(this,"Trust/Grant has been clicked", Toast.LENGTH_SHORT).show();
+    }
+
+    public void onEntertainmentClick(View view){
+        Toast.makeText(this,"Entertainment has been clicked", Toast.LENGTH_SHORT).show();
+    }
+
 }
