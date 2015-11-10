@@ -1,4 +1,7 @@
 <resources>
-    <string name="app_name">Gapp</string>
+    <string name="app_name">Gapp Project</string>
     <string name="action_settings">Settings</string>
+    <string name="Welcome">Welcome to the Gapp project</string>
+    <string name="new_event">New Event</string>
+    <string name="inspire">#GetInspired</string>
 </resources>
