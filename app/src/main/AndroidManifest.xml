@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Inspire"
+            android:name=".InspireActivity"
             android:label="@string/title_activity_inspire"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>

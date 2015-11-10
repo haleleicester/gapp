@@ -1,8 +1,15 @@
 <resources>
+
+    <!-- All strings to do with App meta data -->
     <string name="app_name">Gapp Project</string>
     <string name="action_settings">Settings</string>
+
+    <!--All strings to do with main activity-->
     <string name="Welcome">Welcome to the Gapp project</string>
     <string name="new_event">New Event</string>
     <string name="inspire">#GetInspired</string>
     <string name="title_activity_inspire">Inspire</string>
+
+    <!--All strings to do with InspireActivity activity -->
+    <string name="i_sales_title">Sales</string>
 </resources>
