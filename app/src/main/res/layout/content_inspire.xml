@@ -16,7 +16,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/i_sales_title"
         android:id="@+id/sales_title"
-        android:onClick="on"
+        android:onClick="onSalesClick"
         android:layout_marginTop="59dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
