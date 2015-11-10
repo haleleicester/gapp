@@ -33,6 +33,18 @@
             android:label="@string/title_activity_database_test"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+        <activity
+            android:name=".ServicesActivity"
+            android:label="@string/title_activity_services"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity android:name=".TGActivity" >
+        </activity>
+        <activity
+            android:name=".EntertainmentActivity"
+            android:label="@string/title_activity_entertainment"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>
