@@ -1,5 +1,6 @@
 package com.example.gapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -21,7 +22,8 @@ public class InspireActivity extends AppCompatActivity {
 
     public void onSalesClick(View view){
         Toast.makeText(this,"Sales has been clicked", Toast.LENGTH_SHORT).show();
-
+        Intent myIntent = new Intent(view.getContext(), SalesActivity.class);
+        startActivityForResult(myIntent, 0);
     }
 
     public void onServicesClick(View view){
