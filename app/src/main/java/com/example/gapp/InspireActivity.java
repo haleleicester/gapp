@@ -21,7 +21,6 @@ public class InspireActivity extends AppCompatActivity {
     }
 
     public void onSalesClick(View view){
-        Toast.makeText(this,"Sales has been clicked", Toast.LENGTH_SHORT).show();
         Intent myIntent = new Intent(view.getContext(), SalesActivity.class);
         startActivityForResult(myIntent, 0);
     }
