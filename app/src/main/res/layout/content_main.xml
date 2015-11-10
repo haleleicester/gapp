@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:text="@string/new_event"
         android:id="@+id/new_event"
+        android:onClick="onNewEventPress"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
