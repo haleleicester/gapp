@@ -19,6 +19,7 @@
 
     <!--All strings to do with the Sales activity-->
     <string name="s_new_event_title">New Event</string>
+    <string name="title_activity_database_test">DatabaseTest</string>
 
 
 
