@@ -9,13 +9,46 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_inspire" tools:context="com.example.gapp.InspireActivity">
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/i_sales_title"
         android:id="@+id/sales_title"
+        android:onClick="on"
+        android:layout_marginTop="59dp"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/i_services_title"
+        android:id="@+id/services_title"
+        android:layout_below="@+id/sales_title"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="81dp" />
+        android:layout_marginTop="50dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/i_trust_grant_title"
+        android:id="@+id/i_trust_grant_title"
+        android:layout_below="@+id/services_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="52dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/i_entertainment_title"
+        android:id="@+id/i_entertainment_title"
+        android:layout_below="@+id/i_trust_grant_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="68dp" />
+
 </RelativeLayout>

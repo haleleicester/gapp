@@ -8,8 +8,13 @@
     <string name="Welcome">Welcome to the Gapp project</string>
     <string name="new_event">New Event</string>
     <string name="inspire">#GetInspired</string>
-    <string name="title_activity_inspire">Inspire</string>
+    <string name="title_activity_inspire">Inspire Activity</string>
 
     <!--All strings to do with InspireActivity activity -->
     <string name="i_sales_title">Sales</string>
+    <string name="i_services_title">Services</string>
+    <string name="i_trust_grant_title">Trust/Grant</string>
+    <string name="i_entertainment_title">Entertainment</string>
+
+
 </resources>
