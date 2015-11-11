@@ -3,6 +3,7 @@ package com.example.gapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ((Toolbar) findViewById(R.id.toolbar)).setTitle("Project Trust :: Gapp");
 
         //load in the database of guides
         GuideDataBaseHelper myDbHelper = new GuideDataBaseHelper(this);
@@ -46,10 +48,12 @@ public class MainActivity extends AppCompatActivity {
         Intent myIntent = new Intent(view.getContext(), InspireActivity.class);
         startActivityForResult(myIntent, 0);
     }
+
     public void onNewEventPress(View view){
         Intent myIntent = new Intent(view.getContext(), CreateEvent1Activity.class);
         startActivityForResult(myIntent, 0);
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
