@@ -171,32 +171,27 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minHeight="0dp"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:layout_marginRight="30dp"
             android:layout_marginTop="30dp"
             android:background="@drawable/btn_small"
-            android:paddingTop="6dp"
+            android:elevation="6dp"
+            android:minHeight="0dp"
+            android:onClick="onInspirePress"
             android:paddingBottom="6dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
+            android:paddingTop="6dp"
             android:text="#INSPIREME"
             android:textColor="#ffffff"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:elevation="6dp"/>
+            android:textStyle="bold" />
 
     </RelativeLayout>
     <!-- end of top bar -->
 
-    <!--<TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/new_event"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/textView" />
-
+    <!--
     <Button
         android:id="@+id/new_event"
         android:layout_width="wrap_content"
@@ -206,15 +201,6 @@
         android:layout_alignParentTop="true"
         android:onClick="onNewEventPress"
         android:text="@string/new_event" />
-
-    <Button
-        android:id="@+id/get_inspired"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/new_event"
-        android:onClick="onInspirePress"
-        android:text="@string/inspire" />-->
+-->
 
 </RelativeLayout>
