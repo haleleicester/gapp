@@ -6,11 +6,11 @@ package com.example.gapp.model;
 public class Event {
 
     private int  _id;
-    private String _contents;
+    private String _name;
 
-    public Event(String _contents){
+    public Event(String _name){
 
-        this._contents = _contents;
+        this._name = _name;
 
     }
 
@@ -18,11 +18,15 @@ public class Event {
         return _id;
     }
 
-    public String get_contents() {
-        return _contents;
+    public void set_id(int _id) {
+        this._id = _id;
     }
 
-    public void set_contents(String _contents) {
-        this._contents = _contents;
+    public String get_name() {
+        return _name;
+    }
+
+    public void set_name(String _name) {
+        this._name = _name;
     }
 }
