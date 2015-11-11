@@ -88,7 +88,8 @@ public class CreateEvent1Activity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int id) {
                         // User clicked OK, so save the mSelectedItems results somewhere
                         // or return them to the component that opened the dialog
-
+                        Log.d("Going to Database", "Now");
+                        toDoDatabase();
 
 
                     }
@@ -106,9 +107,17 @@ public class CreateEvent1Activity extends AppCompatActivity {
 
     public void toDoDatabase(){
 
-        for(int i = 0; i < checked.size(); i++){
+        int power = 2, result = 0;
 
+        for(int i = 0; i < checked.size(); i++){
+            if(checked.get(i) == true) {
+                result = result + power;
+                power = power * 2;
+            }
         }
+
+        Log.d("Going to Database", "Success");
+
 
 
     }
