@@ -15,17 +15,14 @@ public class InspireActivity extends AppCompatActivity {
         setContentView(R.layout.activity_inspire);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
     }
 
     public void onSalesClick(View view){
-        Intent myIntent = new Intent(view.getContext(), SalesActivity.class);
-        startActivityForResult(myIntent, 0);
+        Toast.makeText(this,"Sales has been clicked", Toast.LENGTH_SHORT).show();
     }
 
     public void onServicesClick(View view){
         Toast.makeText(this,"Services has been clicked", Toast.LENGTH_SHORT).show();
-
     }
 
     public void onTGClick(View view){
@@ -33,13 +30,9 @@ public class InspireActivity extends AppCompatActivity {
     }
 
     public void onEntertainmentClick(View view){
-        //Toast.makeText(this,"Entertainment has been clicked", Toast.LENGTH_SHORT).show();
-        Bundle bundle = new Bundle();
-        bundle.putString("inspireID","A2");//this is probably not the right id
-
         Intent myIntent = new Intent(view.getContext(), GuideListActivity.class);
-        myIntent.putExtras(bundle); //add the bundle to the intent
-        startActivityForResult(myIntent, 0);
+        myIntent.putExtra("categoryId", "A2");
+        startActivity(myIntent);
     }
 
 }

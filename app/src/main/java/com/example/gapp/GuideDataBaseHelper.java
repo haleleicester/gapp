@@ -56,7 +56,7 @@ import java.util.List;
         private static final String KEY_GUIDE_HOW_WORKS = "description";
         private static final String KEY_GUIDE_URL = "url";
         private static final String KEY_IMAGE = "imgName";
-        private static final String KEY_CATEGORY_ID="inspiration_id";//this should be renamed to cat_id but I am running out of time
+        private static final String KEY_CATEGORY_ID="category_id";//this should be renamed to cat_id but I am running out of time
 
         // guide_tips Table Columns
         private static final String KEY_LINK_GUIDE_ID = "guide_id";
@@ -195,13 +195,11 @@ import java.util.List;
                 case 0:
                     // create version 1
                     //guide table
-
-
-
-                    db.execSQL("CREATE TABLE guide (guide_id TEXT PRIMARY KEY, title TEXT, amount TEXT, description TEXT, url TEXT, imgName TEXT,inspiration_id TEXT);");
+                    db.execSQL("CREATE TABLE guide (guide_id TEXT PRIMARY KEY, title TEXT, amount TEXT, description TEXT, url TEXT, imgName TEXT, category_id TEXT);");
                     db.execSQL("INSERT INTO guide VALUES ('G1','Car Boot Sale','£200 to £500','Selling items is a good way to raise money and can be repeated several times as people are getting something for their money as well as contributing to your volunteering overseas. If you are selling items to the general public it also means that you are collecting money from a wider group  and are not asking the same people to contribute all the time. Collect the items to be sold which can be donated, where you get the full price, or bought, were you get the profit in the sales. Remember to set the price at the appropriate level for the location to get as much as possible but not appear to high that they go to other stalls.','imgName', 'www.projecttrust.org.uk/fundraising','A1');");
                     db.execSQL("INSERT INTO guide VALUES ('G2','Holding a Quiz','£250 to £400','Provide entertainment for the between 25 to 50, or more, participating and charge an entry fee of between œ5 and œ10 per person. The venue can vary but should include some food and refreshment. The venue provider may provide a bar, and take the profits, or you can organise one or make it a BYOB.','www.projecttrust.org.uk/fundraising','imgName','A2');");
                     db.execSQL("INSERT INTO guide VALUES ('G4','Trust Applications','£500 to £1,000','Charitable Trust are numerous in the UK and have been set up to support people in a number of ways. Specific charitable aims they support include education, volunteering and specific locations both here and abroad. Your year volunteering overseas will meet a number of different criteria as will your personal situation that will enable you to apply for support.','www.projecttrust.org.uk/fundraising','imgName','A4');");
+
                     //tips table
                     db.execSQL("CREATE TABLE tips (tip_id TEXT PRIMARY KEY,tip TEXT);");
                     db.execSQL("INSERT INTO `tips` VALUES ('T1','Venue - select a good venue for the numbers expected which doesn?t cost too much. It may be free if they provide a bar.');");
@@ -282,7 +280,7 @@ import java.util.List;
 
         public Guide getGuide(String guideID) {
             Guide newGuide=new Guide();
-            String CAT_SELECT_QUERY ="Select * FROM " + TABLE_GUIDE + " WHERE " + KEY_CAT_ID + " = ?";
+            String CAT_SELECT_QUERY ="Select * FROM " + TABLE_GUIDE + " WHERE " + KEY_GUIDE_ID + " = ?";
             SQLiteDatabase db = getReadableDatabase();
             Cursor cursor = db.rawQuery(CAT_SELECT_QUERY, new String[]{guideID});
 
@@ -341,7 +339,7 @@ import java.util.List;
                     Cursor cursorIdeas = db.rawQuery(IDEA_SELECT_QUERY, new String[]{categoryID});
                     if (cursorIdeas.moveToFirst()) {
                         do {   //fill up the vector of tips
-                            ideas.add(new Pair<>(cursorIdeas.getString(cursorIdeas.getColumnIndex(KEY_CAT_ID)), cursorIdeas.getString(cursorIdeas.getColumnIndex(KEY_CAT_TITLE))));
+                            ideas.add(new Pair<>(cursorIdeas.getString(cursorIdeas.getColumnIndex(KEY_GUIDE_ID)), cursorIdeas.getString(cursorIdeas.getColumnIndex(KEY_GUIDE_TITLE))));
                             //Log.d("gapp_debug", Arrays.toString(cursorTips.getColumnNames()));
                             Log.d("gapp_debug", "Ideas is now... " + ideas.size());
                         } while (cursorIdeas.moveToNext());

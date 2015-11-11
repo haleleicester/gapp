@@ -28,11 +28,6 @@
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
-            android:name=".SalesActivity"
-            android:label="@string/title_activity_sales"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
-        <activity
             android:name=".DatabaseTest"
             android:label="@string/title_activity_database_test"
             android:theme="@style/AppTheme.NoActionBar" >
