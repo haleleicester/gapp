@@ -80,6 +80,7 @@ public class CreateEvent1Activity extends AppCompatActivity {
         // Toast.makeText(this, db.getSale(0).get_name(), Toast.LENGTH_SHORT).show();
     }
 
+    // When pulling info from database this is where the checklist will be calculated
     public void setToDo(){
 
 
@@ -136,6 +137,14 @@ public class CreateEvent1Activity extends AppCompatActivity {
 
 
     public void toDoDatabase(){
+
+        /**
+         * Todo list is saved via a calculating how many checkboxes have been pressed.
+         * This is calculated by giving the boolean a int value. E.G. Advertise = 2 Book Venue = 4
+         * and so on.
+         *
+         * When pulling from the database a calculation should work out what has been posted. E.G. 6 = Advertise and Book Venue.
+         */
 
         int power = 2;
 
