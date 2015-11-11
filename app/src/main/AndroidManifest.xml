@@ -25,7 +25,6 @@
         </activity>
         <activity
             android:name=".CreateEvent1Activity"
-
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
@@ -48,6 +47,26 @@
         <activity
             android:name=".EntertainmentActivity"
             android:label="@string/title_activity_entertainment"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".Guide"
+            android:label="@string/title_activity_guide"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".GuideListActivity"
+            android:label="@string/title_activity_guide_list"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".ActivityGuideItem"
+            android:label="@string/title_activity_activity_guide_item"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".GuideItemActivity"
+            android:label="@string/title_activity_guide_item"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
     </application>

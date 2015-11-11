@@ -7,12 +7,39 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import java.io.IOException;
+import java.sql.SQLException;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //load in the database of guides
+        GuideDataBaseHelper myDbHelper = new GuideDataBaseHelper(this);
+
+        /*try {
+
+            myDbHelper.createDataBase();
+
+        } catch (IOException ioe) {
+
+            throw new Error("Unable to create database");
+
+        }*/
+        //open the database - now opening when I make the cursor
+     //   try {
+
+     //       myDbHelper.openDataBase();
+
+      //  }catch(SQLException sqle){
+
+           // throw sqle; //need to put this back but it is causing an error
+
+      //  }
+
     }
 
     public void onInspirePress(View view){

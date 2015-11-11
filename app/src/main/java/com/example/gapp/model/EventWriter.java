@@ -70,9 +70,9 @@ public class EventWriter extends SQLiteOpenHelper{
         //values.put(KEY_DATE, events_date.get_contents());
         //db.insert(TABLE_EVENTS, null, values);
         if ((db.insert(TABLE_EVENTS, null, values)) != -1) {
-            Toast.makeText(EventWriter.this.getContext(), "inserted...", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(EventWriter.this.getContext(), "inserted...", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this.getApplicationContext(), "Error..", Toast.LENGTH_LONG).show();
+           // Toast.makeText(this.getApplicationContext(), "Error..", Toast.LENGTH_LONG).show();
         }
         db.close();
     }

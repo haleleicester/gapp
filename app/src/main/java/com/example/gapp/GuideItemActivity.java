@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 
-public class EntertainmentActivity extends AppCompatActivity {
+public class GuideItemActivity extends AppCompatActivity {
     private String guideID;
     private String guideTitle;
     private String guideHowItWorks;
@@ -56,51 +56,51 @@ public class EntertainmentActivity extends AppCompatActivity {
 
     public void onNewEventClick(View view){
         // Toast.makeText(this, "Make new event", Toast.LENGTH_SHORT).show();
-      //  SalesGrabber db = new SalesGrabber(this);
+        //  SalesGrabber db = new SalesGrabber(this);
 
-      //  db.addSale(new Sale("Test Hello World"));
-      //  Toast.makeText(this, db.getSale(0).get_contents(), Toast.LENGTH_SHORT).show();
+        //  db.addSale(new Sale("Test Hello World"));
+        //  Toast.makeText(this, db.getSale(0).get_contents(), Toast.LENGTH_SHORT).show();
     }
 
-public class TipsListAdapter extends BaseAdapter {
+    public class TipsListAdapter extends BaseAdapter {
 
-    private List<String> data = new ArrayList<>();
-    private Context context;
+        private List<String> data = new ArrayList<>();
+        private Context context;
 
-    public TipsListAdapter(Context context) {
-        this.context = context;
+        public TipsListAdapter(Context context) {
+            this.context = context;
+        }
+
+        public void setData(List<String> data) {
+            this.data = data;
+        }
+
+        @Override
+        public int getCount() {
+            return data.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return data.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            TextView view = convertView instanceof TextView ? (TextView) convertView : null;
+            if (convertView == null) view = new TextView(context);
+
+            String tip = (String) getItem(position);
+
+            view.setText(tip);
+
+            return view;
+        }
     }
-
-    public void setData(List<String> data) {
-        this.data = data;
-    }
-
-    @Override
-    public int getCount() {
-        return data.size();
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return data.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        TextView view = convertView instanceof TextView ? (TextView) convertView : null;
-        if (convertView == null) view = new TextView(context);
-
-        String tip = (String) getItem(position);
-
-        view.setText(tip);
-
-        return view;
-    }
-}
 
 }

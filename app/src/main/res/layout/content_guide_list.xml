@@ -19,40 +19,14 @@
         tools:showIn="@layout/activity_entertainment">
 
         <TextView
-            android:id="@+id/guide_title"
+            android:id="@+id/debug_inspiration_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="52dp"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <TextView
-            android:id="@+id/guide_expected_amount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <TextView
-            android:id="@+id/guide_how_it_works"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <ListView
-            android:id="@+id/tips_list"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="52dp"/>
-
-        <Button
-            android:id="@+id/new_event"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
-            android:onClick="onNewEventClick"
-            android:text="@string/s_new_event_title" />
 
     </LinearLayout>
 
 </ScrollView>
+
