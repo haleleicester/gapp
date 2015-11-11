@@ -35,7 +35,7 @@ public class InspireActivity extends AppCompatActivity {
     public void onEntertainmentClick(View view){
         //Toast.makeText(this,"Entertainment has been clicked", Toast.LENGTH_SHORT).show();
         Bundle bundle = new Bundle();
-        bundle.putString("inspireID","I2");//this is probably not the right id
+        bundle.putString("inspireID","A2");//this is probably not the right id
 
         Intent myIntent = new Intent(view.getContext(), GuideListActivity.class);
         myIntent.putExtras(bundle); //add the bundle to the intent
