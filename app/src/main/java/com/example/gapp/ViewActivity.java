@@ -18,6 +18,10 @@ import java.util.List;
 
 public class ViewActivity extends AppCompatActivity {
 
+    List<Event> events;
+    TextView database;
+    int i;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,19 +31,41 @@ public class ViewActivity extends AppCompatActivity {
 
 
         EventWriter db = new EventWriter(this);
-        List<Event> events = db.getEvents();
+        events = db.getEvents();
 
 
-        TextView database = (TextView) findViewById(R.id.viewText);
+        database = (TextView) findViewById(R.id.viewText);
+        i = 0;
 
         if(events.size() != 0 ) {
-            Event e = events.get(0);
+            Event e = events.get(i);
             database.setText(e.get_name() + "\n" + e.getLocation() + "\n" + e.getDate() + "\n" + e.getTime() + "\n" + e.getCategory() + "\n" + e.getDescription() + "\n" + e.getTarget() + "\n" + e.getAmountR() + "\n" + e.getTodo());
         }
 //        for (Event e : events) {
 //            Log.d("gapp_debug", e.get_id() + ": " + e.get_name() + " " + e.getLocation() + " " + e.getDate() + " " + e.getTime() + " " + e.getCategory() + " " +  e.getDescription() + " " + e.getTarget() + " " + e.getAmountR() + e.getTodo());
 //        }
-        
+
+    }
+
+    public void onNextClick(View view){
+
+
+        if(events.size() != 0 && i + 1 != events.size()) {
+            i++;
+            Event e = events.get(i);
+            database.setText(e.get_name() + "\n" + e.getLocation() + "\n" + e.getDate() + "\n" + e.getTime() + "\n" + e.getCategory() + "\n" + e.getDescription() + "\n" + e.getTarget() + "\n" + e.getAmountR() + "\n" + e.getTodo());
+        }
+
+    }
+
+    public void onPreviousClick(View view){
+
+        if(events.size() != 0 && i - 1 != 0) {
+            i--;
+            Event e = events.get(i);
+            database.setText(e.get_name() + "\n" + e.getLocation() + "\n" + e.getDate() + "\n" + e.getTime() + "\n" + e.getCategory() + "\n" + e.getDescription() + "\n" + e.getTarget() + "\n" + e.getAmountR() + "\n" + e.getTodo());
+        }
+
     }
 
 }
