@@ -26,12 +26,21 @@ public class CreateEvent1Activity extends AppCompatActivity {
     EditText t2;
     EditText t3;
     EditText t4;
+    public ArrayList<Boolean> checked;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_event1);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        checked = new ArrayList<>();
+        checked.add(false);
+        checked.add(false);
+        checked.add(false);
+
 
 
     }
@@ -51,23 +60,25 @@ public class CreateEvent1Activity extends AppCompatActivity {
     public void onToDoClick(View view){
 
         String[] topics = {"Advertise", "Book Venue", "Sell tickets", };
-        final ArrayList mSelectedItems = new ArrayList();  // Where we track the selected items
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        boolean[] mChecked = {checked.get(0),checked.get(1), checked.get(2)};
+
         // Set the dialog title
         builder.setTitle("To do list")
                 // Specify the list array, the items to be selected by default (null for none),
                 // and the listener through which to receive callbacks when items are selected
-                .setMultiChoiceItems(topics, null,
-                        new DialogInterface.OnMultiChoiceClickListener() {
+                .setMultiChoiceItems(topics, mChecked, new DialogInterface.OnMultiChoiceClickListener() {
                             @Override
-                            public void onClick(DialogInterface dialog, int which,
-                                                boolean isChecked) {
+                            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
                                 if (isChecked) {
                                     // If the user checked the item, add it to the selected items
-                                    mSelectedItems.add(which);
-                                } else if (mSelectedItems.contains(which)) {
+                                    checked.set(which, true);
+                                    Log.d("gapp_debug", checked.toString());
+                                } else {// if (mSelectedItems.contains(which)) {
                                     // Else, if the item is already in the array, remove it
-                                    mSelectedItems.remove(Integer.valueOf(which));
+                                    checked.set(which, false);
+                                    Log.d("gapp_debug", checked.toString());
                                 }
                             }
                         })
@@ -77,6 +88,8 @@ public class CreateEvent1Activity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int id) {
                         // User clicked OK, so save the mSelectedItems results somewhere
                         // or return them to the component that opened the dialog
+
+
 
                     }
                 })
@@ -88,6 +101,16 @@ public class CreateEvent1Activity extends AppCompatActivity {
                 });
 
         builder.create().show();
+    }
+
+
+    public void toDoDatabase(){
+
+        for(int i = 0; i < checked.size(); i++){
+
+        }
+
+
     }
 
 }
