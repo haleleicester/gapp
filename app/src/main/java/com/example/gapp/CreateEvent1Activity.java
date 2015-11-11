@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -87,7 +88,10 @@ public class CreateEvent1Activity extends AppCompatActivity {
 
     }
 
-
+    public void onViewEventsPress(View view){
+        Intent myIntent = new Intent(view.getContext(), ViewActivity.class);
+        startActivityForResult(myIntent, 0);
+    }
     public void onToDoClick(View view){
 
         String[] topics = {"Advertise", "Book Venue", "Sell tickets", };
