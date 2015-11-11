@@ -27,7 +27,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="6"
-            android:padding="4dp">
+            android:padding="4dp"
+            android:clickable="true"
+            android:onClick="onViewEventsPress">
 
             <ImageView
                 android:layout_width="match_parent"
