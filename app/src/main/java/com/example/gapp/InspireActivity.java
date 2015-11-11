@@ -17,7 +17,10 @@ public class InspireActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
     }
-
+    public void onViewEventsPress(View view){
+        Intent myIntent = new Intent(view.getContext(), ViewActivity.class);
+        startActivityForResult(myIntent, 0);
+    }
     public void onSalesClick(View view){
         Intent myIntent = new Intent(view.getContext(), SalesActivity.class);
         startActivityForResult(myIntent, 0);
