@@ -78,7 +78,7 @@ public class EventWriter extends SQLiteOpenHelper{
     }
 
 
-    public void addEvent(String events_name, String events_location, String events_date,String events_time,String events_cat,String events_desc,String events_tgtamt,String events_amtrsd){
+    public void addEvent(String events_name, String events_location, String events_date,String events_time,String events_cat,String events_desc,String events_tgtamt,String events_amtrsd, int events_todo){
 
         Log.d("addEvents", events_name.toString());
         SQLiteDatabase db = this.getWritableDatabase();
@@ -93,7 +93,7 @@ public class EventWriter extends SQLiteOpenHelper{
         values.put(KEY_TGTAMT, events_tgtamt);
         values.put(KEY_AMTRSD, events_amtrsd);
       //  values.put(KEY_PTRC, events_ptrc);
-       // values.put(KEY_TODO, events_todo);
+       values.put(KEY_TODO, events_todo);
 
         //db.insert(TABLE_EVENTS, null, values);
         if ((db.insert(TABLE_EVENTS, null, values)) != -1) {
@@ -113,8 +113,18 @@ public class EventWriter extends SQLiteOpenHelper{
         {
             if (cursor.moveToFirst()) {
                 do {
-                    Event e = new Event(cursor.getString(cursor.getColumnIndex("_name")));
+                    Event e = new Event(
+                            cursor.getString(cursor.getColumnIndex("_name")),
+                            cursor.getString(cursor.getColumnIndex("_location")),
+                            cursor.getString(cursor.getColumnIndex("_date")),
+                            cursor.getString(cursor.getColumnIndex("_time")),
+                            cursor.getString(cursor.getColumnIndex("_cat")),
+                            cursor.getString(cursor.getColumnIndex("_desc")),
+                            cursor.getString(cursor.getColumnIndex("_tgtamt")),
+                            cursor.getString(cursor.getColumnIndex("_amtrsd")),
+                            cursor.getInt(cursor.getColumnIndex("_todolist")));
                     e.set_id(cursor.getInt(cursor.getColumnIndex("_id")));
+
                     events.add(e);
                 } while (cursor.moveToNext());
             }

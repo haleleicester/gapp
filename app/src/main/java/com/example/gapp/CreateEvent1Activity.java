@@ -32,6 +32,7 @@ public class CreateEvent1Activity extends AppCompatActivity {
     EditText e_amtrsd;
     EditText e_ptrc;
     public ArrayList<Boolean> checked;
+    public int result;
 
 
     @Override
@@ -40,11 +41,12 @@ public class CreateEvent1Activity extends AppCompatActivity {
         setContentView(R.layout.activity_create_event1);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        result = 0;
         checked = new ArrayList<>();
         checked.add(false);
         checked.add(false);
         checked.add(false);
+
 
 
 
@@ -60,7 +62,7 @@ public class CreateEvent1Activity extends AppCompatActivity {
         e_cat= (EditText) findViewById(R.id.category);
         e_desc= (EditText) findViewById(R.id.eventdesc);;
         e_tgtamt= (EditText) findViewById(R.id.eventtarget);;
-        e_amtrsd = (EditText) findViewById(R.id.eventamtraised);;
+        e_amtrsd = (EditText) findViewById(R.id.eventamtraised);
         //e_ptrc = (EditText) findViewById(R.id.PTcheckBox);;
 
 
@@ -74,9 +76,16 @@ public class CreateEvent1Activity extends AppCompatActivity {
         String e_tgtamts = e_tgtamt.getText().toString();
         String e_amtrsds = e_amtrsd.getText().toString();
         //String e_ptrcs = e_ptrc.getText().toString();
-       db.addEvent(e_names, e_locs, e_dates,e_times,e_cats,e_descs,e_tgtamts,e_amtrsds);
+       db.addEvent(e_names, e_locs, e_dates,e_times,e_cats,e_descs,e_tgtamts,e_amtrsds, result);
         // Toast.makeText(this, db.getSale(0).get_name(), Toast.LENGTH_SHORT).show();
     }
+
+    public void setToDo(){
+
+
+
+    }
+
 
     public void onToDoClick(View view){
 
@@ -128,7 +137,7 @@ public class CreateEvent1Activity extends AppCompatActivity {
 
     public void toDoDatabase(){
 
-        int power = 2, result = 0;
+        int power = 2;
 
         for(int i = 0; i < checked.size(); i++){
             if(checked.get(i) == true) {

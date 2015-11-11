@@ -26,7 +26,7 @@ public class ViewActivity extends AppCompatActivity {
         List<Event> events = db.getEvents();
 
         for (Event e : events) {
-            Log.d("gapp_debug", e.get_id() + ": " + e.get_name());
+            Log.d("gapp_debug", e.get_id() + ": " + e.get_name() + " " + e.getLocation() + " " + e.getDate() + " " + e.getTime() + " " + e.getCategory() + " " +  e.getDescription() + " " + e.getTarget() + " " + e.getAmountR() + e.getTodo());
         }
 
 
