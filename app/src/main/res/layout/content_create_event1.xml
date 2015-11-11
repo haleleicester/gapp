@@ -1,117 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_create_event1"
     tools:context="com.example.gapp.CreateEvent1Activity">
 
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <TextView
+            android:layout_column="0"
+            android:layout_row="0"
+            android:text="Event Name"
+            android:textSize="10sp"
+
+            />
 
 
+        <EditText
+            android:id="@+id/eventname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="0"
+            android:ems="8"
+            android:hint="Event Name"
+            android:inputType="textPersonName" />
 
+        <TextView
+            android:layout_column="0"
+            android:layout_row="1"
+            android:text="Event Location"
+            android:textSize="10sp"
 
-<EditText
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:inputType="textPersonName"
-android:hint="Event Name"
-android:ems="10"
-android:id="@+id/eventname"
+            />
 
-/>
+        <EditText
+            android:id="@+id/eventlocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="1"
+            android:hint="Location" />
 
-<EditText
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="Location"
-android:id="@+id/eventlocation"
-android:layout_row="1"
-android:layout_column="0"
-android:layout_columnSpan="2"/>
+        <TextView
+            android:layout_column="0"
+            android:layout_row="2"
+            android:text="Event Date"
+            android:textSize="10sp"
 
-<EditText
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:inputType="date"
-android:text="Date"
-android:ems="10"
-android:id="@+id/eventdate"
-android:layout_row="2"
-android:layout_column="0"
-android:layout_columnSpan="2"/>
+            />
 
-<EditText
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:inputType="time"
-android:text="Time"
-android:ems="10"
-android:id="@+id/eventtime"
-android:layout_row="3"
-android:layout_column="0"
-android:layout_columnSpan="2" />
+        <EditText
+            android:id="@+id/eventdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="2"
+            android:ems="8"
+            android:hint="Date"
+            android:inputType="date" />
 
-<EditText
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:id="@+id/category"
-android:text="Category"
-android:layout_row="4"
-android:layout_column="0"
-android:layout_columnSpan="2"/>
+        <TextView
+            android:layout_column="0"
+            android:layout_row="3"
+            android:text="Event Time"
+            android:textSize="10sp"
 
-<EditText
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:id="@+id/eventdesc"
-android:text="Desc"
-android:layout_row="5"
-android:layout_column="0"
-android:layout_columnSpan="2" />
+            />
 
-<EditText
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:inputType="number"
-android:text="Target Amount"
-android:ems="10"
-android:id="@+id/eventtarget"
-android:layout_row="6"
-android:layout_column="0"
-android:layout_columnSpan="2"
-    />
+        <EditText
+            android:id="@+id/eventtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="3"
+            android:ems="10"
+            android:hint="Time"
+            android:inputType="time" />
 
-<EditText
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:inputType="numberDecimal"
-android:text="Amount Raised"
-android:ems="10"
-android:id="@+id/eventamtraised"
-android:layout_row="7"
-android:layout_column="0"
-android:layout_columnSpan="2"
-    />
+        <TextView
+            android:layout_column="0"
+            android:layout_row="4"
+            android:text="Category"
+            android:textSize="10sp"
 
-<CheckBox
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="PT received"
-android:id="@+id/PTcheckBox"
-android:layout_row="8"
-android:layout_column="0" />
-<Button
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="EventSave"
-android:id="@+id/EventSave"
-android:layout_row="9"
-android:layout_column="0"
-android:onClick="onSaveEventClick"
+            />
 
-    />
-    </LinearLayout>
+        <EditText
+            android:id="@+id/category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="4"
+            android:hint="Category" />
+
+        <TextView
+            android:layout_column="0"
+            android:layout_row="5"
+            android:text="Event Desc"
+            android:textSize="10sp"
+
+            />
+
+        <EditText
+            android:id="@+id/eventdesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="5"
+            android:hint="Desc" />
+
+        <TextView
+            android:layout_column="0"
+            android:layout_row="6"
+            android:text="Target Amount"
+            android:textSize="10sp"
+
+            />
+
+        <EditText
+            android:id="@+id/eventtarget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="6"
+            android:ems="10"
+            android:hint="Target Amount"
+            android:inputType="number"
+
+            />
+
+        <TextView
+            android:layout_column="0"
+            android:layout_row="7"
+            android:text="Amount Raised"
+            android:textSize="10sp"
+
+            />
+
+        <EditText
+            android:id="@+id/eventamtraised"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="7"
+            android:ems="10"
+            android:hint="Amount Raised"
+            android:inputType="numberDecimal"
+
+            />
+
+        <CheckBox
+            android:id="@+id/PTcheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="8"
+            android:text="PT received" />
+        <Button
+            android:id="@+id/ToDoList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="8"
+            android:onClick="onToDoClick"
+            android:text="ToDo"
+
+            />
+        <Button
+            android:id="@+id/EventSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="9"
+            android:onClick="onSaveEventClick"
+            android:text="EventSave"
+
+            />
+    </GridLayout>
+
+</ScrollView>
