@@ -26,6 +26,7 @@
     <string name="title_activity_guide">Guide</string>
     <string name="title_activity_activity_guide_item">ActivityGuideItem</string>
     <string name="title_activity_guide_item">GuideItemActivity</string>
+    <string name="title_activity_view">ViewActivity</string>
 
 
 

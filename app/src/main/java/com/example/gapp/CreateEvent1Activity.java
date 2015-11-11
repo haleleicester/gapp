@@ -22,10 +22,15 @@ import java.util.ArrayList;
 
 public class CreateEvent1Activity extends AppCompatActivity {
 
-    EditText t1;
-    EditText t2;
-    EditText t3;
-    EditText t4;
+    EditText e_name;
+    EditText e_loc;
+    EditText e_date;
+    EditText e_time;
+    EditText e_cat;
+    EditText e_desc;
+    EditText e_tgtamt;
+    EditText e_amtrsd;
+    EditText e_ptrc;
     public ArrayList<Boolean> checked;
 
 
@@ -45,16 +50,32 @@ public class CreateEvent1Activity extends AppCompatActivity {
 
     }
     public void onSaveEventClick(View view){
-        // Toast.makeText(this, "Make new event", Toast.LENGTH_SHORT).show();
         EventWriter db = new EventWriter(this);
-        t1 = (EditText) findViewById(R.id.eventname);
-        t2 = (EditText) findViewById(R.id.eventlocation);
-        t3 = (EditText) findViewById(R.id.eventdate);
-        String e_name = t1.getText().toString();
-        String e_location = t2.getText().toString();
-        String e_date = t3.getText().toString();
-       // db.addEvent(e_name, e_location, e_date);
-        // Toast.makeText(this, db.getSale(0).get_contents(), Toast.LENGTH_SHORT).show();
+
+
+        e_name = (EditText) findViewById(R.id.eventname);
+        e_loc = (EditText) findViewById(R.id.eventlocation);
+        e_date = (EditText) findViewById(R.id.eventdate);
+        e_time = (EditText) findViewById(R.id.eventtime);
+        e_cat= (EditText) findViewById(R.id.category);
+        e_desc= (EditText) findViewById(R.id.eventdesc);;
+        e_tgtamt= (EditText) findViewById(R.id.eventtarget);;
+        e_amtrsd = (EditText) findViewById(R.id.eventamtraised);;
+        //e_ptrc = (EditText) findViewById(R.id.PTcheckBox);;
+
+
+
+        String e_names = e_name.getText().toString();
+        String e_locs = e_loc.getText().toString();
+        String e_dates = e_date.getText().toString();
+        String e_times = e_time.getText().toString();
+        String e_cats = e_cat.getText().toString();
+        String e_descs = e_desc.getText().toString();
+        String e_tgtamts = e_tgtamt.getText().toString();
+        String e_amtrsds = e_amtrsd.getText().toString();
+        //String e_ptrcs = e_ptrc.getText().toString();
+       db.addEvent(e_names, e_locs, e_dates,e_times,e_cats,e_descs,e_tgtamts,e_amtrsds);
+        // Toast.makeText(this, db.getSale(0).get_name(), Toast.LENGTH_SHORT).show();
     }
 
     public void onToDoClick(View view){
