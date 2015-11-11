@@ -16,7 +16,10 @@ public class InspireActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     }
-
+    public void onViewEventsPress(View view){
+        Intent myIntent = new Intent(view.getContext(), ViewActivity.class);
+        startActivityForResult(myIntent, 0);
+    }
     public void onSalesClick(View view){
         Toast.makeText(this,"Sales has been clicked", Toast.LENGTH_SHORT).show();
     }

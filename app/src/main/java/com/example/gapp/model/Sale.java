@@ -5,24 +5,28 @@ package com.example.gapp.model;
  */
 public class Sale {
 
-    private int  _id;
-    private String _contents;
+    private int  id;
+    private String contents;
 
-    public Sale(String _contents){
+    public Sale(String contents){
 
-        this._contents = _contents;
+        this.contents = contents;
 
+    }
+
+    public void set_id(int id){
+        this.id =id;
     }
 
     public int get_id() {
-        return _id;
+        return id;
     }
 
     public String get_contents() {
-        return _contents;
+        return contents;
     }
 
     public void set_contents(String _contents) {
-        this._contents = _contents;
+        this.contents = _contents;
     }
 }

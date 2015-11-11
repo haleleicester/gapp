@@ -1,191 +1,353 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/activity_create_event1"
-    tools:context="com.example.gapp.CreateEvent1Activity">
+    tools:context="com.example.gapp.CreateEvent1Activity"
+    tools:showIn="@layout/activity_create_event1">
 
-    <GridLayout
+    <!-- top bar -->
+    <LinearLayout
+        android:id="@+id/top_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin">
+        android:layout_height="90dp"
+        android:layout_alignParentTop="true"
+        android:background="#95c5d6"
+        android:elevation="6dp"
+        android:weightSum="34">
 
-        <TextView
-            android:layout_column="0"
-            android:layout_row="0"
-            android:text="Event Name"
-            android:textSize="10sp"
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
 
-            />
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:clickable="true"
+            android:onClick="onViewEventsPress"
+            android:padding="4dp">
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/top_btn" />
 
-        <EditText
-            android:id="@+id/eventname"
-            android:layout_width="wrap_content"
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_margin="14dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/calendar_icon" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:padding="4dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/top_btn" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_margin="14dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/donation_icon" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:padding="6dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/target_percent_img" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:baselineAligned="false"
+                android:gravity="top">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="36"
+                    android:textColor="#ffffff"
+                    android:textSize="34sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="%"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="12"
+            android:gravity="center"
+            android:padding="4dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="bottom">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:text="£"
+                    android:textColor="#0ea0bb"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2,367"
+                    android:textColor="#ffffff"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=".65"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+    <!-- end of top bar -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/top_bar"
+        android:layout_alignParentBottom="true">
+
+        <GridLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_row="0"
-            android:ems="8"
-            android:hint="Event Name"
-            android:inputType="textPersonName" />
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin">
 
-        <TextView
-            android:layout_column="0"
-            android:layout_row="1"
-            android:text="Event Location"
-            android:textSize="10sp"
+            <TextView
+                android:layout_column="0"
+                android:layout_row="0"
+                android:text="Event Name"
+                android:textSize="10sp"
 
-            />
+                />
 
-        <EditText
-            android:id="@+id/eventlocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_row="1"
-            android:hint="Location" />
 
-        <TextView
-            android:layout_column="0"
-            android:layout_row="2"
-            android:text="Event Date"
-            android:textSize="10sp"
+            <EditText
+                android:id="@+id/eventname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_row="0"
+                android:ems="8"
+                android:hint="Event Name"
+                android:inputType="textPersonName" />
 
-            />
+            <TextView
+                android:layout_column="0"
+                android:layout_row="1"
+                android:text="Event Location"
+                android:textSize="10sp"
 
-        <EditText
-            android:id="@+id/eventdate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_row="2"
-            android:ems="8"
-            android:hint="Date"
-            android:inputType="date" />
+                />
 
-        <TextView
-            android:layout_column="0"
-            android:layout_row="3"
-            android:text="Event Time"
-            android:textSize="10sp"
+            <EditText
+                android:id="@+id/eventlocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_row="1"
+                android:hint="Location" />
 
-            />
+            <TextView
+                android:layout_column="0"
+                android:layout_row="2"
+                android:text="Event Date"
+                android:textSize="10sp"
 
-        <EditText
-            android:id="@+id/eventtime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_row="3"
-            android:ems="10"
-            android:hint="Time"
-            android:inputType="time" />
+                />
 
-        <TextView
-            android:layout_column="0"
-            android:layout_row="4"
-            android:text="Category"
-            android:textSize="10sp"
+            <EditText
+                android:id="@+id/eventdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_row="2"
+                android:ems="8"
+                android:hint="Date"
+                android:inputType="date" />
 
-            />
+            <TextView
+                android:layout_column="0"
+                android:layout_row="3"
+                android:text="Event Time"
+                android:textSize="10sp"
 
-        <EditText
-            android:id="@+id/category"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_row="4"
-            android:hint="Category" />
+                />
 
-        <TextView
-            android:layout_column="0"
-            android:layout_row="5"
-            android:text="Event Desc"
-            android:textSize="10sp"
+            <EditText
+                android:id="@+id/eventtime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_row="3"
+                android:ems="10"
+                android:hint="Time"
+                android:inputType="time" />
 
-            />
+            <TextView
+                android:layout_column="0"
+                android:layout_row="4"
+                android:text="Category"
+                android:textSize="10sp"
 
-        <EditText
-            android:id="@+id/eventdesc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_row="5"
-            android:hint="Desc" />
+                />
 
-        <TextView
-            android:layout_column="0"
-            android:layout_row="6"
-            android:text="Target Amount"
-            android:textSize="10sp"
+            <EditText
+                android:id="@+id/category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_row="4"
+                android:hint="Category" />
 
-            />
+            <TextView
+                android:layout_column="0"
+                android:layout_row="5"
+                android:text="Event Desc"
+                android:textSize="10sp"
 
-        <EditText
-            android:id="@+id/eventtarget"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_row="6"
-            android:ems="10"
-            android:hint="Target Amount"
-            android:inputType="number"
+                />
 
-            />
+            <EditText
+                android:id="@+id/eventdesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_row="5"
+                android:hint="Desc" />
 
-        <TextView
-            android:layout_column="0"
-            android:layout_row="7"
-            android:text="Amount Raised"
-            android:textSize="10sp"
+            <TextView
+                android:layout_column="0"
+                android:layout_row="6"
+                android:text="Target Amount"
+                android:textSize="10sp"
 
-            />
+                />
 
-        <EditText
-            android:id="@+id/eventamtraised"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_row="7"
-            android:ems="10"
-            android:hint="Amount Raised"
-            android:inputType="numberDecimal"
+            <EditText
+                android:id="@+id/eventtarget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_row="6"
+                android:ems="10"
+                android:hint="Target Amount"
+                android:inputType="number"
 
-            />
+                />
 
-        <CheckBox
-            android:id="@+id/PTcheckBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_row="8"
-            android:text="PT received" />
-        <Button
-            android:id="@+id/ToDoList"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_row="8"
-            android:onClick="onToDoClick"
-            android:text="ToDo"
+            <TextView
+                android:layout_column="0"
+                android:layout_row="7"
+                android:text="Amount Raised"
+                android:textSize="10sp"
 
-            />
-        <Button
-            android:id="@+id/EventSave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_row="9"
-            android:onClick="onSaveEventClick"
-            android:text="EventSave"
+                />
 
-            />
-    </GridLayout>
+            <EditText
+                android:id="@+id/eventamtraised"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_row="7"
+                android:ems="10"
+                android:hint="Amount Raised"
+                android:inputType="numberDecimal"
 
-</ScrollView>
+                />
+
+            <CheckBox
+                android:id="@+id/PTcheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_row="8"
+                android:text="PT received" />
+
+            <Button
+                android:id="@+id/ToDoList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_row="8"
+                android:onClick="onToDoClick"
+                android:text="ToDo"
+
+                />
+
+            <Button
+                android:id="@+id/EventSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_row="9"
+                android:onClick="onSaveEventClick"
+                android:text="EventSave"
+
+                />
+        </GridLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
+
