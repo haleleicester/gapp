@@ -23,14 +23,12 @@ public class GuideItemActivity extends AppCompatActivity {
     private String guideTitle;
     private String guideHowItWorks;
     private String guideExpectedAmount;
-    private List<String> tips = new ArrayList<>();//vector of tips for this guide
+    private List<String> tips = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guide_item);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         //extract the data from the database to display the entertainment activities
         GuideDataBaseHelper dbHelper = new GuideDataBaseHelper(this);

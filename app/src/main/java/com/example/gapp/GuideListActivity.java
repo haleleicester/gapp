@@ -34,8 +34,7 @@ public class GuideListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_guide_list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //display the list of items for this event
-        //first get the event id from the bundle
+
         Intent intent = getIntent();
         if (null != intent) {
             String categoryID = intent.getStringExtra("categoryId");
