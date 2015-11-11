@@ -19,6 +19,7 @@ public class CreateEvent1Activity extends AppCompatActivity {
     EditText t1;
     EditText t2;
     EditText t3;
+    EditText t4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,11 +34,11 @@ public class CreateEvent1Activity extends AppCompatActivity {
         EventWriter db = new EventWriter(this);
         t1 = (EditText) findViewById(R.id.eventname);
         t2 = (EditText) findViewById(R.id.eventlocation);
-        t3 = (EditText) findViewById(R.id.eventdesc);
+        t3 = (EditText) findViewById(R.id.eventdate);
         String e_name = t1.getText().toString();
         String e_location = t2.getText().toString();
-        String e_desc = t3.getText().toString();
-       db.addEvent(e_name);
+        String e_date = t3.getText().toString();
+       db.addEvent(e_name, e_location, e_date);
         // Toast.makeText(this, db.getSale(0).get_contents(), Toast.LENGTH_SHORT).show();
     }
 

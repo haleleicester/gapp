@@ -16,6 +16,8 @@ import com.example.gapp.model.Event;
  */
 public class EventWriter extends SQLiteOpenHelper{
 
+    private Context context;
+
     // Database Version
     private static final int DATABASE_VERSION = 1;
     // Database Name
@@ -30,6 +32,7 @@ public class EventWriter extends SQLiteOpenHelper{
 
     public EventWriter(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        this.context = context;
     }
 
     @Override
@@ -37,13 +40,13 @@ public class EventWriter extends SQLiteOpenHelper{
         // SQL statement to create book table
         String CREATE_BOOK_TABLE = "CREATE TABLE events ( " +
                 "_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "_name TEXT" +
-                "_location TEXT" +
-                "_date TEXT" +
-                "_time TEXT" +
-                "_cat TEXT" +
-                "_desc TEXT" +
-                "_tar_amt TEXT" +
+                "_name TEXT," +
+                "_location TEXT," +
+                "_date TEXT," +
+                "_time TEXT," +
+                "_cat TEXT," +
+                "_desc TEXT," +
+                "_tar_amt TEXT," +
                 "_amt_raised TEXT)";
 
         // create books table
@@ -59,20 +62,20 @@ public class EventWriter extends SQLiteOpenHelper{
         this.onCreate(db);
     }
 
-    public void addEvent(String events_name){
+    public void addEvent(String events_name, String events_location, String events_date){
 
-        Log.d("addEvents", events_name.toString());
+        Log.d("addEvents", events_name);
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, events_name);
-        //values.put(KEY_LOC, events_location.get_contents());
-        //values.put(KEY_DATE, events_date.get_contents());
+        values.put(KEY_LOC, events_location);
+        values.put(KEY_DATE, events_date);
         //db.insert(TABLE_EVENTS, null, values);
         if ((db.insert(TABLE_EVENTS, null, values)) != -1) {
-            Toast.makeText(EventWriter.this.getContext(), "inserted...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "inserted...", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this.getApplicationContext(), "Error..", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "Error..", Toast.LENGTH_LONG).show();
         }
         db.close();
     }
