@@ -60,7 +60,7 @@ public class ViewActivity extends AppCompatActivity {
 
     public void onPreviousClick(View view){
 
-        if(events.size() != 0 && i - 1 != 0) {
+        if(events.size() != 0 && i - 1 >= 0) {
             i--;
             Event e = events.get(i);
             database.setText(e.get_name() + "\n" + e.getLocation() + "\n" + e.getDate() + "\n" + e.getTime() + "\n" + e.getCategory() + "\n" + e.getDescription() + "\n" + e.getTarget() + "\n" + e.getAmountR() + "\n" + e.getTodo());
