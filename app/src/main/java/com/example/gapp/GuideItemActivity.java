@@ -28,23 +28,23 @@ public class GuideItemActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_entertainment);
+        setContentView(R.layout.activity_guide_item);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         //extract the data from the database to display the entertainment activities
         GuideDataBaseHelper dbHelper = new GuideDataBaseHelper(this);
-        Guide newGuide=dbHelper.getGuide("G1");
-        guideID=newGuide.getID();
-        guideTitle=newGuide.getTitle();
-        guideHowItWorks=newGuide.getHowItWorks();
-        guideExpectedAmount=newGuide.getExpectedAmount();
-        tips=newGuide.getTips();
+        Guide newGuide = dbHelper.getGuide(getIntent().getExtras().getString("itemId"));
+        guideID = newGuide.getID();
+        guideTitle = newGuide.getTitle();
+        guideHowItWorks = newGuide.getHowItWorks();
+        guideExpectedAmount = newGuide.getExpectedAmount();
+        tips = newGuide.getTips();
         TextView guideTitleView = (TextView) findViewById(R.id.guide_title);
         guideTitleView.setText(guideTitle);
         TextView guideExpectedAmountView = (TextView) findViewById(R.id.guide_expected_amount);
         guideExpectedAmountView.setText(guideExpectedAmount);
-        TextView guideHowItWorksView= (TextView) findViewById(R.id.guide_how_it_works);
+        TextView guideHowItWorksView = (TextView) findViewById(R.id.guide_how_it_works);
         guideHowItWorksView.setText(Html.fromHtml(guideHowItWorks));
 
         ListView guideTipsListView = (ListView) findViewById(R.id.tips_list);
@@ -52,14 +52,6 @@ public class GuideItemActivity extends AppCompatActivity {
         tipsListAdapter.setData(tips);
         guideTipsListView.setAdapter(tipsListAdapter);
 
-    }
-
-    public void onNewEventClick(View view){
-        // Toast.makeText(this, "Make new event", Toast.LENGTH_SHORT).show();
-        //  SalesGrabber db = new SalesGrabber(this);
-
-        //  db.addSale(new Sale("Test Hello World"));
-        //  Toast.makeText(this, db.getSale(0).get_contents(), Toast.LENGTH_SHORT).show();
     }
 
     public class TipsListAdapter extends BaseAdapter {
