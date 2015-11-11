@@ -18,8 +18,8 @@ public class SalesGrabber extends SQLiteOpenHelper{
     private static final String DATABASE_NAME = "SalesDB";
 
     private static final String TABLE_SALES = "sales";
-    private static final String KEY_ID = "_id";
-    private static final String KEY_CONTENTS = "_contents";
+    private static final String KEY_ID = "id";
+    private static final String KEY_CONTENTS = "contents";
     private static final String[] COLUMNS = {KEY_ID,KEY_CONTENTS};
 
     public SalesGrabber(Context context) {
@@ -30,8 +30,8 @@ public class SalesGrabber extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase db) {
         // SQL statement to create book table
         String CREATE_BOOK_TABLE = "CREATE TABLE sales ( " +
-                "_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "_contents TEXT)";
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "contents TEXT)";
 
         // create books table
         db.execSQL(CREATE_BOOK_TABLE);
@@ -76,7 +76,7 @@ public class SalesGrabber extends SQLiteOpenHelper{
         if (cursor != null)
             cursor.moveToFirst();
 
-        Sale sale = new Sale(cursor.getString(1));
+        Sale sale = new Sale(cursor.getString(0));
 
         return sale;
 

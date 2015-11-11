@@ -22,52 +22,93 @@ import java.util.ArrayList;
 
 public class CreateEvent1Activity extends AppCompatActivity {
 
-    EditText t1;
-    EditText t2;
-    EditText t3;
-    EditText t4;
+    EditText e_name;
+    EditText e_loc;
+    EditText e_date;
+    EditText e_time;
+    EditText e_cat;
+    EditText e_desc;
+    EditText e_tgtamt;
+    EditText e_amtrsd;
+    EditText e_ptrc;
+    public ArrayList<Boolean> checked;
+    public int result;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_event1);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        result = 0;
+        checked = new ArrayList<>();
+        checked.add(false);
+        checked.add(false);
+        checked.add(false);
+
+
 
 
     }
     public void onSaveEventClick(View view){
-        // Toast.makeText(this, "Make new event", Toast.LENGTH_SHORT).show();
         EventWriter db = new EventWriter(this);
-        t1 = (EditText) findViewById(R.id.eventname);
-        t2 = (EditText) findViewById(R.id.eventlocation);
-        t3 = (EditText) findViewById(R.id.eventdate);
-        String e_name = t1.getText().toString();
-        String e_location = t2.getText().toString();
-        String e_date = t3.getText().toString();
-       // db.addEvent(e_name, e_location, e_date);
-        // Toast.makeText(this, db.getSale(0).get_contents(), Toast.LENGTH_SHORT).show();
+
+
+        e_name = (EditText) findViewById(R.id.eventname);
+        e_loc = (EditText) findViewById(R.id.eventlocation);
+        e_date = (EditText) findViewById(R.id.eventdate);
+        e_time = (EditText) findViewById(R.id.eventtime);
+        e_cat= (EditText) findViewById(R.id.category);
+        e_desc= (EditText) findViewById(R.id.eventdesc);;
+        e_tgtamt= (EditText) findViewById(R.id.eventtarget);;
+        e_amtrsd = (EditText) findViewById(R.id.eventamtraised);
+        //e_ptrc = (EditText) findViewById(R.id.PTcheckBox);;
+
+
+
+        String e_names = e_name.getText().toString();
+        String e_locs = e_loc.getText().toString();
+        String e_dates = e_date.getText().toString();
+        String e_times = e_time.getText().toString();
+        String e_cats = e_cat.getText().toString();
+        String e_descs = e_desc.getText().toString();
+        String e_tgtamts = e_tgtamt.getText().toString();
+        String e_amtrsds = e_amtrsd.getText().toString();
+        //String e_ptrcs = e_ptrc.getText().toString();
+       db.addEvent(e_names, e_locs, e_dates,e_times,e_cats,e_descs,e_tgtamts,e_amtrsds, result);
+        // Toast.makeText(this, db.getSale(0).get_name(), Toast.LENGTH_SHORT).show();
     }
+
+    public void setToDo(){
+
+
+
+    }
+
 
     public void onToDoClick(View view){
 
         String[] topics = {"Advertise", "Book Venue", "Sell tickets", };
-        final ArrayList mSelectedItems = new ArrayList();  // Where we track the selected items
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        boolean[] mChecked = {checked.get(0),checked.get(1), checked.get(2)};
+
         // Set the dialog title
         builder.setTitle("To do list")
                 // Specify the list array, the items to be selected by default (null for none),
                 // and the listener through which to receive callbacks when items are selected
-                .setMultiChoiceItems(topics, null,
-                        new DialogInterface.OnMultiChoiceClickListener() {
+                .setMultiChoiceItems(topics, mChecked, new DialogInterface.OnMultiChoiceClickListener() {
                             @Override
-                            public void onClick(DialogInterface dialog, int which,
-                                                boolean isChecked) {
+                            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
                                 if (isChecked) {
                                     // If the user checked the item, add it to the selected items
-                                    mSelectedItems.add(which);
-                                } else if (mSelectedItems.contains(which)) {
+                                    checked.set(which, true);
+                                    Log.d("gapp_debug", checked.toString());
+                                } else {// if (mSelectedItems.contains(which)) {
                                     // Else, if the item is already in the array, remove it
-                                    mSelectedItems.remove(Integer.valueOf(which));
+                                    checked.set(which, false);
+                                    Log.d("gapp_debug", checked.toString());
                                 }
                             }
                         })
@@ -77,6 +118,9 @@ public class CreateEvent1Activity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int id) {
                         // User clicked OK, so save the mSelectedItems results somewhere
                         // or return them to the component that opened the dialog
+                        Log.d("Going to Database", "Now");
+                        toDoDatabase();
+
 
                     }
                 })
@@ -88,6 +132,24 @@ public class CreateEvent1Activity extends AppCompatActivity {
                 });
 
         builder.create().show();
+    }
+
+
+    public void toDoDatabase(){
+
+        int power = 2;
+
+        for(int i = 0; i < checked.size(); i++){
+            if(checked.get(i) == true) {
+                result = result + power;
+                power = power * 2;
+            }
+        }
+
+        Log.d("Going to Database", "Success");
+
+
+
     }
 
 }
